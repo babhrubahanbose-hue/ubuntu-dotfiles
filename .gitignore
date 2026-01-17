@@ -1,0 +1,15 @@
+# Backup files created during restore
+*.backup.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Sensitive files (add manually if needed)
+# .env
+# credentials.json

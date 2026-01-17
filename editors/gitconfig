@@ -1,0 +1,128 @@
+[user]
+	email = babhrubahanbose@gmail.com
+	name = Babhrubahan
+
+[core]
+	pager = delta
+	editor = nvim
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Catppuccin Mocha
+	dark = true
+	hyperlinks = true
+
+	# File headers
+	file-style = bold yellow ul
+	file-decoration-style = yellow ol ul
+	hunk-header-decoration-style = blue box
+
+	# Line numbers (Catppuccin Mocha colors)
+	line-numbers-left-style = "#6c7086"
+	line-numbers-right-style = "#6c7086"
+	line-numbers-minus-style = bold "#f38ba8"
+	line-numbers-plus-style = bold "#a6e3a1"
+	line-numbers-zero-style = "#6c7086"
+	line-numbers-left-format = "{nm:>4} │"
+	line-numbers-right-format = "{np:>4} │"
+
+	# Diff colors (Catppuccin Mocha)
+	minus-style = syntax "#3b2c35"
+	minus-emph-style = syntax "#5c3a4a"
+	plus-style = syntax "#2d3b2e"
+	plus-emph-style = syntax "#3d5a40"
+
+	# Whitespace
+	whitespace-error-style = "#f38ba8" reverse
+
+	# Blame
+	blame-palette = "#1e1e2e" "#181825" "#11111b" "#313244"
+	blame-format = "{author:<15} {commit:<8} {timestamp:<15}"
+	blame-timestamp-format = "%Y-%m-%d"
+
+	# Merge conflicts
+	merge-conflict-begin-symbol = "▼"
+	merge-conflict-end-symbol = "▲"
+	merge-conflict-ours-diff-header-style = bold yellow
+	merge-conflict-theirs-diff-header-style = bold blue
+	merge-conflict-ours-diff-header-decoration-style = "#fab387" box
+	merge-conflict-theirs-diff-header-decoration-style = "#89b4fa" box
+
+	# Word diff
+	inline-hint-style = syntax
+
+	# Grep
+	grep-file-style = bold purple
+	grep-line-number-style = green
+	grep-match-line-style = normal
+	grep-match-word-style = bold red
+
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[delta "decorations"]
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#89b4fa"
+	hunk-header-style = file line-number syntax
+
+[merge]
+	conflictstyle = diff3
+	tool = nvimdiff
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvimdiff"]
+	cmd = nvim -d "$LOCAL" "$MERGED" "$REMOTE"
+
+[diff]
+	colorMoved = default
+	algorithm = histogram
+
+[add.interactive]
+	useBuiltin = false
+
+[rebase]
+	autoStash = true
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[init]
+	defaultBranch = main
+
+[alias]
+	# Pretty log
+	lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# Short status
+	st = status -sb
+	# Diff with delta side-by-side
+	d = diff
+	ds = diff --staged
+	# Show changes word by word
+	dw = diff --word-diff
+	# List branches by recent
+	br = branch --sort=-committerdate --format='%(color:yellow)%(refname:short)%(color:reset) - %(color:green)%(committerdate:relative)%(color:reset) - %(contents:subject)'
+	# Amend without editing message
+	amend = commit --amend --no-edit
+	# Undo last commit (keep changes)
+	undo = reset --soft HEAD~1
+	# Show last commit
+	last = log -1 HEAD --stat
+	# List aliases
+	aliases = config --get-regexp ^alias\\.
+[submodule]
+	recurse = true

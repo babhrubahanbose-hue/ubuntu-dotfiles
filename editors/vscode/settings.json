@@ -1,0 +1,148 @@
+{
+    // Ensure semantic highlighting works
+    "editor.semanticHighlighting.enabled": true,
+
+    // Theme
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+
+    // ================================
+    // SEMANTIC TOKEN COLOR OVERRIDES
+    // ================================
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+
+        "rules": {
+            // ===========
+            // FUNCTIONS
+            // ===========
+            "function.declaration": {
+                "foreground": "#fabd2f",
+                "fontStyle": "bold"
+            },
+            "function": {
+                "foreground": "#fe8019"
+            },
+
+            // ===========
+            // CLASSES
+            // ===========
+            "class.declaration": {
+                "foreground": "#b8bb26",
+                "fontStyle": "italic bold"
+            },
+            "class": {
+                "foreground": "#8ec07c"
+            },
+
+            // ===========
+            // CLASS INSTANCES
+            // ===========
+            "variable.instance.declaration": {
+                "foreground": "#83a598",
+                "fontStyle": "italic"
+            },
+            "variable.instance": {
+                "foreground": "#458588"
+            },
+
+            // ===========
+            // CLASS METHODS
+            // ===========
+            "method.declaration": {
+                "foreground": "#d3869b",
+                "fontStyle": "italic bold"
+            },
+            "method": {
+                "foreground": "#b16286"
+            },
+
+            // ===========
+            // VARIABLES
+            // ===========
+            "variable.declaration": {
+                "foreground": "#d79921",
+                "fontStyle": "bold"
+            },
+            "variable": {
+                "foreground": "#98710f"
+            },
+
+            // ===========
+            // PARAMETERS
+            // ===========
+            "parameter": {
+                "foreground": "#3d2ffa",
+                "fontStyle": "italic"
+            },
+
+            // ===========
+            // NUMBERS
+            // ===========
+            "number": {
+                "foreground": "#d3869b"
+            },
+
+            // ===========
+            // STRINGS (bold)
+            // ===========
+            "string": {
+                "foreground": "#4a043d",
+                "fontStyle": "bold"
+            },
+
+            // ===========
+            // KEYWORDS (bold)
+            // ===========
+            "keyword": {
+                "foreground": "#fb4934",
+                "fontStyle": "bold"
+            },
+
+            // ===========
+            // CONSTANTS
+            // ===========
+            "constant": {
+                "foreground": "#d65d0e",
+                "fontStyle": "bold"
+            },
+
+            // ===========
+            // COMMENTS (bold + italic)
+            // ===========
+            "comment": {
+                "foreground": "#928374",
+                "fontStyle": "italic bold"
+            }
+        }
+    },
+
+    // ========================================
+    // TEXTMATE RULES (needed for strings)
+    // ========================================
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "string",
+                    "string.quoted",
+                    "string.quoted.single",
+                    "string.quoted.double",
+                    "string.interpolated",
+                    "string.template"
+                ],
+                "settings": {
+                    "foreground": "#8408a0",
+                    "fontStyle": "bold"
+                }
+            }
+        ]
+    },
+    // Ensures Pylance emits semantic tokens
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.lineNumbers": "relative",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "git.openRepositoryInParentFolders": "always",
+    "python.defaultInterpreterPath": "/usr/bin/python3"
+}

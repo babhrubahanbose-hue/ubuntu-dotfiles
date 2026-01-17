@@ -1,0 +1,16 @@
+add-to-desktop@tommimon.github.com
+appmenu-is-back@fthx
+arcmenu@arcmenu.com
+blur-my-shell@aunetx
+caffeine@patapon.info
+clipboard-indicator@tudmotu.com
+color-picker@tuberry
+CoverflowAltTab@palatis.blogspot.com
+custom-window-controls@icedman.github.com
+dash-to-dock@micxgx.gmail.com
+dash-to-panel@jderose9.github.com
+forge@jmmaranan.com
+gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com
+logomenu@aryan_k
+quick-settings-tweaks@qwreey
+Vitals@CoreCoding.com

@@ -1,0 +1,24 @@
+live_config_reload = true
+
+[cursor]
+style = "Block"
+
+[env]
+WINIT_UNIX_BACKEND = "wayland"
+
+[font]
+size = 13
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 1.0

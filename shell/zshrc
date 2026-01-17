@@ -1,0 +1,402 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+ CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+#Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+export EDITOR='vim'
+else
+export EDITOR='nvim'
+fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias vi="nvim"
+alias terminal="kitty-x11"
+
+# ===================================================================
+# == Modern CLI Tool Aliases
+# ===================================================================
+# Bat (better cat)
+alias cat="bat"
+alias catp="bat --plain"  # No line numbers, plain output
+
+# Eza (better ls)
+alias ls="eza --color=always --icons"
+alias la="eza --color=always --icons -la"
+alias ll="eza --color=always --icons -l"
+alias lt="eza --tree --color=always --icons --level=2"
+alias lta="eza --tree --color=always --icons --level=2 -a"
+
+# System info
+alias details="neofetch"
+
+# PDF viewer
+alias pdf="pdf-smart"
+
+# TLDR (simplified man pages)
+alias help="tldr"
+alias h="tldr"
+
+# Zsh config
+alias reload-zsh="source ~/.zshrc"
+alias edit-zsh="nvim ~/.zshrc"
+
+# Delta (for standalone diff)
+alias diff="delta"
+
+# Quick navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Disable default ctrl+z suspend (only when stdin is a tty)
+[[ -t 0 ]] && stty susp undef
+bindkey -r '^Z'
+
+# Auto start tmux in GNOME Terminal or Kitty, not on SSH or nested shells
+if [[ -z "$TMUX" && ( -n "$GNOME_TERMINAL_SCREEN" || -n "$KITTY_WINDOW_ID" || -n "$KITTY_PID" ) ]]; then
+    tmux new-session -A -s main
+fi
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# ===================================================================
+# == History Setup (josean-style)
+# ===================================================================
+HISTFILE=$HOME/.zhistory
+SAVEHIST=10000
+HISTSIZE=10000
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+setopt hist_ignore_space
+
+# Completion using arrow keys (based on history)
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+# ===================================================================
+# == FZF Configuration (josean-style with Catppuccin Mocha)
+# ===================================================================
+eval "$(fzf --zsh)"
+
+# FZF theme - Catppuccin Mocha
+export FZF_DEFAULT_OPTS="
+  --height 60%
+  --layout=reverse
+  --border=rounded
+  --margin=1
+  --padding=1
+  --bind 'ctrl-j:down,ctrl-k:up'
+  --bind 'ctrl-d:half-page-down,ctrl-u:half-page-up'
+  --bind 'ctrl-a:select-all,ctrl-l:clear-query'
+  --bind 'enter:accept'
+  --bind 'tab:toggle+down'
+  --bind 'shift-tab:toggle+up'
+  --bind 'ctrl-y:execute-silent(echo -n {+} | xclip -selection clipboard)'
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+  --color=border:#6c7086,label:#cdd6f4
+"
+
+# Use fd instead of find (faster)
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Use fd for path/dir completion
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+# FZF-git integration (Ctrl+G shortcuts for git)
+[[ -f ~/fzf-git.sh/fzf-git.sh ]] && source ~/fzf-git.sh/fzf-git.sh
+
+# Preview: show tree for dirs, bat for files
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always --icons {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always --icons {} | head -200'"
+
+# Advanced fzf completion with context-aware previews
+_fzf_comprun() {
+  local command=$1
+  shift
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always --icons {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \${}'" "$@" ;;
+    ssh)          fzf --preview 'dig {}' "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
+
+# ===================================================================
+# == Zoxide (better cd) - josean-style
+# ===================================================================
+eval "$(zoxide init zsh --cmd cd)"
+
+# ===================================================================
+# == TheFuck (command correction)
+# ===================================================================
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
+# files - unified file manager and tree viewer
+# Usage:
+#   files           - open ranger in current directory
+#   files <path>    - open ranger in specified path
+#   files -t [depth] [path]  - show tree view (default depth: 2)
+#   files --tree [depth] [path]
+files() {
+    if [[ "$1" == "-t" || "$1" == "--tree" ]]; then
+        shift
+        local depth=2
+        local target="."
+        # Check if first arg is a number (depth)
+        if [[ "$1" =~ ^[0-9]+$ ]]; then
+            depth="$1"
+            shift
+        fi
+        # Remaining arg is path
+        [[ -n "$1" ]] && target="$1"
+        tree -C -L "$depth" --dirsfirst "$target"
+    else
+        ranger "${1:-.}"
+    fi
+}
+
+# ===================================================================
+# == Python with Gaudi Virtual Environment
+# ===================================================================
+GAUDI_VENV="$HOME/gaudi/gaudi"
+GAUDI_DIR="$HOME/gaudi"
+
+# Auto-activate gaudi venv when entering gaudi directory tree
+# This ensures ./script.py executions use the venv python
+gaudi_auto_venv() {
+    if [[ "$PWD" == "$GAUDI_DIR"* ]]; then
+        # Inside gaudi directory - activate if not already
+        if [[ "$VIRTUAL_ENV" != "$GAUDI_VENV" ]]; then
+# source "$GAUDI_VENV/bin/activate"  # commented out by conda initialize
+        fi
+    else
+        # Outside gaudi directory - deactivate if gaudi venv is active
+        if [[ "$VIRTUAL_ENV" == "$GAUDI_VENV" ]]; then
+            deactivate
+        fi
+    fi
+}
+
+# Hook into directory changes
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd gaudi_auto_venv
+
+# Also run on shell startup in case we start inside gaudi directory
+gaudi_auto_venv
+
+# Manually run python with gaudi venv (still useful for explicit calls)
+python() {
+    # Check if gaudi environment is already activated
+    if [[ "$VIRTUAL_ENV" != "$GAUDI_VENV" ]]; then
+# source "$GAUDI_VENV/bin/activate"  # commented out by conda initialize
+    fi
+
+    # Run python3 with all arguments
+    python3 "$@"
+}
+
+# Run python with sudo using the gaudi environment
+# Usage: sudopython script.py [args...]
+sudopython() {
+    sudo "$HOME/gaudi/gaudi/bin/gaudi-python" "$@"
+}
+
+alias exit-all="kill -9 $PPID"
+
+# Maths folder encryption aliases
+alias unlock-maths='gocryptfs ~/.maths_encrypted ~/maths'
+alias lock-maths='fusermount -u ~/maths'
+
+# Slideshow function using feh
+slideshow() {
+    local fullscreen=""
+    local delay=""
+    while getopts "ft:" opt; do
+        case $opt in
+            f) fullscreen="-F" ;;
+            t) delay="-D $OPTARG" ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+    OPTIND=1
+    feh $fullscreen $delay --auto-zoom --randomize "$1"
+}
+
+# Size function - show directory sizes
+# Usage:
+#   size              - current directory, depth 1
+#   size -d 2         - depth 2
+#   size -s           - sorted by size
+#   size -h           - include hidden files/dirs
+#   size -d 2 -s -h ../some/path  - all options with custom path
+size() {
+    local depth=1
+    local show_hidden=""
+    local sort_by_size=false
+    local target="."
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -d)
+                depth="$2"
+                shift 2
+                ;;
+            -h)
+                show_hidden="--all"
+                shift
+                ;;
+            -s)
+                sort_by_size=true
+                shift
+                ;;
+            *)
+                target="$1"
+                shift
+                ;;
+        esac
+    done
+
+    # Build and execute command
+    if [ "$sort_by_size" = true ]; then
+        du $show_hidden --max-depth="$depth" "$target" | sort -h
+    else
+        du $show_hidden --max-depth="$depth" "$target"
+    fi
+}
+
+# Added by Gaudi UI setup
+export PATH="$HOME/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/babhrubahan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/babhrubahan/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/babhrubahan/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/babhrubahan/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

@@ -1,0 +1,5 @@
+# Current theme settings (for reference)
+gtk-theme='Nordic-darker'
+icon-theme='Papirus-Dark'
+cursor-theme='Bibata-Modern-Ice'
+color-scheme='prefer-dark'

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="custom-window-controls">
+  <schema path="/org/gnome/shell/extensions/custom-window-controls/" id="org.gnome.shell.extensions.custom-window-controls">
+    <key type="b" name="traffic-light-colors">
+        <default>true</default>
+        <summary>Traffic light color</summary>
+        <description>Traffic light color</description>
+    </key>
+    <key type="(dddd)" name="button-color">
+        <default>(1.,1.,1.,1.)</default>
+        <summary>Button color</summary>
+        <description>Set button color.</description>
+    </key>
+    <key type="b" name="hovered-traffic-light-colors">
+        <default>true</default>
+        <summary>Hovered: Traffic light color</summary>
+        <description>Hovered: traffic light color</description>
+    </key>
+    <key type="(dddd)" name="hovered-button-color">
+        <default>(1.,1.,1.,1.)</default>
+        <summary>Hovered: Button color</summary>
+        <description>Hovered: Set button color.</description>
+    </key>
+    <key type="b" name="unfocused-traffic-light-colors">
+        <default>true</default>
+        <summary>Unfocused: Traffic light color</summary>
+        <description>Unfocused: traffic light color</description>
+    </key>
+    <key type="(dddd)" name="unfocused-button-color">
+        <default>(1.,1.,1.,1.)</default>
+        <summary>Unfocused: Button color</summary>
+        <description>Unfocused: Set button color.</description>
+    </key>
+    <key type="(dddd)" name="inner-outline-color">
+        <default>(0.,0.,0.,1.)</default>
+        <summary>Inner outline color</summary>
+        <description>Set inner outline color.</description>
+    </key>
+    <key type="(dddd)" name="outer-outline-color">
+        <default>(0.,0.,0.,1.)</default>
+        <summary>Outer outline color</summary>
+        <description>Set outer outline color.</description>
+    </key>
+    <key type="(dddd)" name="unfocused-inner-outline-color">
+        <default>(0.,0.,0.,1.)</default>
+        <summary>Unfocused: inner outline color</summary>
+        <description>Unfocused: Set inner outline color.</description>
+    </key>
+    <key type="(dddd)" name="unfocused-outer-outline-color">
+        <default>(0.,0.,0.,1.)</default>
+        <summary>Unfocused: outer outline color</summary>
+        <description>Unfocused: Set outer outline color.</description>
+    </key>
+    <key type="i" name="button-layout">
+        <default>0</default>
+        <summary>Button layout</summary>
+        <description>Button layout</description>
+    </key>
+    <key type="i" name="control-button-style">
+        <default>0</default>
+        <summary>Control button style</summary>
+        <description>Control button style</description>
+    </key>
+    <key type="s" name="window-list">
+        <default>""</default>
+        <summary>Window list</summary>
+        <description>Window list JSON.strinfy-ied</description>
+    </key>
+    <key type="d" name="border-radius">
+        <default>0</default>
+        <summary>Border radius</summary>
+        <description>Set border radius.</description>
+    </key>
+    <key type="d" name="inner-border-thickness">
+        <default>0.5</default>
+        <summary>Inner border thickness</summary>
+        <description>Set border radius.</description>
+    </key>
+    <key type="d" name="outer-border-thickness">
+        <default>0.5</default>
+        <summary>Outer border thickness</summary>
+        <description>Set border radius.</description>
+    </key>
+    <key type="(dddd)" name="border-color">
+        <default>(1.,1.,1.,1.)</default>
+        <summary>border color</summary>
+        <description>Set dock border color.</description>
+    </key>
+    <key type="i" name="border-thickness">
+        <default>0</default>
+        <summary>Border thickness</summary>
+        <description>Border thickness.</description>
+    </key>
+    <key type="d" name="unfocused-border-radius">
+        <default>0</default>
+        <summary>Border radius</summary>
+        <description>Set border radius.</description>
+    </key>
+    <key type="(dddd)" name="unfocused-border-color">
+        <default>(1.,1.,1.,1.)</default>
+        <summary>border color</summary>
+        <description>Set dock border color.</description>
+    </key>
+    <key type="i" name="unfocused-border-thickness">
+        <default>0</default>
+        <summary>Border thickness</summary>
+        <description>Border thickness.</description>
+    </key>
+  </schema>
+</schemalist>

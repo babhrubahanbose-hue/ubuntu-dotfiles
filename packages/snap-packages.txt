@@ -1,0 +1,23 @@
+bluemail
+code --classic
+docker
+firefox
+firmware-updater
+gitkraken --classic
+gtk-common-themes
+kf6-core24
+localsend
+mesa-2404
+obs-studio
+obsidian --classic
+okular
+overleaf
+pdfarranger
+qbittorrent-arnatious
+snap-store
+snapd-desktop-integration
+speedtest
+teams-linux
+terminalpp --classic
+thunderbird
+whatsapp-linux-app

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="AdwPreferencesPage" id="appearance">
+    <property name="name">appearance</property>
+    <property name="title" translatable="yes">Appearance</property>
+    <property name="icon-name">dash-symbolic</property>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="visible">false</property>
+        <property name="title" translatable="yes">Window</property>
+        <property name="description" translatable="yes"/>
+        <child>
+          <object class="AdwActionRow">
+            <property name="visible">false</property>
+            <property name="title" translatable="yes">Border Thickness</property>
+            <property name="subtitle" translatable="yes">Set border thickness.</property>
+            <property name="activatable-widget">border-thickness</property>
+            <child>
+              <object class="GtkDropDown" id="border-thickness">
+                <property name="valign">center</property>
+                <property name="model">border-thickness-model</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Inner Border Thickness</property>
+            <property name="subtitle" translatable="yes">Set window border radius.</property>
+            <property name="activatable-widget">inner-border-thickness</property>
+            <child>
+              <object class="GtkScale" id="inner-border-thickness">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">140px</property>
+                <property name="draw-value">false</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">inner-border-thickness-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Outer Border Thickness</property>
+            <property name="subtitle" translatable="yes">Set window border radius.</property>
+            <property name="activatable-widget">outer-border-thickness</property>
+            <child>
+              <object class="GtkScale" id="outer-border-thickness">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">140px</property>
+                <property name="draw-value">false</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">outer-border-thickness-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Border Radius</property>
+            <property name="subtitle" translatable="yes">Set window border radius.</property>
+            <property name="activatable-widget">border-radius</property>
+            <child>
+              <object class="GtkScale" id="border-radius">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">140px</property>
+                <property name="draw-value">false</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">border-radius-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Border Color</property>
+            <property name="subtitle" translatable="yes">Select border color.</property>
+            <property name="activatable-widget">border-color</property>
+            <child>
+              <object class="GtkColorButton" id="border-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Inner Outline Color</property>
+            <property name="subtitle" translatable="yes">Select inner outline color.</property>
+            <property name="activatable-widget">inner-outline-color</property>
+            <child>
+              <object class="GtkColorButton" id="inner-outline-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Outer Outline Color</property>
+            <property name="subtitle" translatable="yes">Select outer-outline color.</property>
+            <property name="activatable-widget">outer-outline-color</property>
+            <child>
+              <object class="GtkColorButton" id="outer-outline-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="visible">false</property>
+            <property name="title" translatable="yes">Unfocused: Border Radius</property>
+            <property name="subtitle" translatable="yes">Set unfocused window border radius.</property>
+            <property name="activatable-widget">unfocused-border-radius</property>
+            <child>
+              <object class="GtkScale" id="unfocused-border-radius">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">140px</property>
+                <property name="draw-value">false</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">border-radius-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Unfocused: Border Color</property>
+            <property name="subtitle" translatable="yes">Select border color.</property>
+            <property name="activatable-widget">unfocused-border-color</property>
+            <child>
+              <object class="GtkColorButton" id="unfocused-border-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Unfocused: Inner Outline Color</property>
+            <property name="subtitle" translatable="yes">Select unfocused-inner-outline color.</property>
+            <property name="activatable-widget">unfocused-inner-outline-color</property>
+            <child>
+              <object class="GtkColorButton" id="unfocused-inner-outline-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Unfocused: Outer Outline Color</property>
+            <property name="subtitle" translatable="yes">Select unfocused-outer-outline color.</property>
+            <property name="activatable-widget">unfocused-outer-outline-color</property>
+            <child>
+              <object class="GtkColorButton" id="unfocused-outer-outline-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="visible">false</property>
+            <property name="title" translatable="yes">Unfocused: Border Thickness</property>
+            <property name="subtitle" translatable="yes">Set border thickness.</property>
+            <property name="activatable-widget">unfocused-border-thickness</property>
+            <child>
+              <object class="GtkDropDown" id="unfocused-border-thickness">
+                <property name="valign">center</property>
+                <property name="model">border-thickness-model</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="yes">Buttons</property>
+        <property name="description" translatable="yes"/>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Attention!</property>
+            <property name="subtitle" translatable="yes">Button style reflects only upon relaunching opened apps.</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="visible">true</property>
+        <property name="title" translatable="yes"/>
+        <property name="description" translatable="yes"/>
+        <child>
+          <object class="AdwActionRow">
+            <property name="visible">false</property>
+            <property name="title" translatable="yes">Enable</property>
+            <property name="subtitle" translatable="yes">Enable window control button skin.</property>
+            <property name="activatable-widget">enable-button-skin</property>
+            <child>
+              <object class="GtkSwitch" id="enable-button-skin">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Button Layout</property>
+            <property name="subtitle" translatable="yes">Set the window control buttons position.</property>
+            <property name="activatable-widget">button-layout</property>
+            <child>
+              <object class="GtkDropDown" id="button-layout">
+                <property name="valign">center</property>
+                <property name="model">button-layout-model</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Button Style</property>
+            <property name="subtitle" translatable="yes">Customize the window control buttons style.</property>
+            <property name="activatable-widget">control-button-style</property>
+            <child>
+              <object class="GtkDropDown" id="control-button-style">
+                <property name="valign">center</property>
+                <property name="model">control-button-style-model</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Traffic Lights</property>
+            <property name="subtitle" translatable="yes">Use Red, Yellow, Green for button colors.</property>
+            <property name="activatable-widget">traffic-light-colors</property>
+            <child>
+              <object class="GtkSwitch" id="traffic-light-colors">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Color</property>
+            <property name="subtitle" translatable="yes">Set a uniform color for all buttons.</property>
+            <property name="activatable-widget">button-color</property>
+            <child>
+              <object class="GtkColorButton" id="button-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Hovered: Traffic Lights</property>
+            <property name="subtitle" translatable="yes">Use Red, Yellow, Green for hovered button colors.</property>
+            <property name="activatable-widget">hovered-traffic-light-colors</property>
+            <child>
+              <object class="GtkSwitch" id="hovered-traffic-light-colors">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Hovered: Color</property>
+            <property name="subtitle" translatable="yes">Set a uniform color for all hovered buttons.</property>
+            <property name="activatable-widget">hovered-button-color</property>
+            <child>
+              <object class="GtkColorButton" id="hovered-button-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Unfocused: Traffic Lights</property>
+            <property name="subtitle" translatable="yes">Use Red, Yellow, Green for button colors for unfocused windows.</property>
+            <property name="activatable-widget">unfocused-traffic-light-colors</property>
+            <child>
+              <object class="GtkSwitch" id="unfocused-traffic-light-colors">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Unfocused: Color</property>
+            <property name="subtitle" translatable="yes">Set a uniform color for all buttons of unfocused windows.</property>
+            <property name="activatable-widget">unfocused-button-color</property>
+            <child>
+              <object class="GtkColorButton" id="unfocused-button-color">
+                <property name="valign">center</property>
+                <property name="hexpand">false</property>
+                <property name="width-request">70px</property>
+                <property name="height-request">45px</property>
+                <property name="show-editor">true</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkStringList" id="button-layout-model">
+    <items>
+      <item translatable="yes">default</item>
+      <item translatable="yes">left</item>
+      <item translatable="yes">right</item>
+    </items>
+  </object>
+  <object class="GtkStringList" id="control-button-style-model">
+    <items>
+      <item translatable="yes">circles</item>
+      <item translatable="yes">squares</item>
+      <item translatable="yes">dashes</item>
+      <item translatable="yes">bars</item>
+      <item translatable="yes">slashes</item>
+      <item translatable="yes">back slashes</item>
+    </items>
+  </object>
+  <object class="GtkAdjustment" id="inner-border-thickness-adjust">
+    <property name="lower">0</property>
+    <property name="upper">1</property>
+    <property name="step-increment">0.1</property>
+  </object>
+  <object class="GtkAdjustment" id="outer-border-thickness-adjust">
+    <property name="lower">0</property>
+    <property name="upper">1</property>
+    <property name="step-increment">0.1</property>
+  </object>
+  <object class="GtkAdjustment" id="border-radius-adjust">
+    <property name="lower">0</property>
+    <property name="upper">10</property>
+    <property name="step-increment">1</property>
+  </object>
+  <object class="GtkStringList" id="border-thickness-model">
+    <items>
+      <item translatable="yes">None</item>
+      <item>1px</item>
+      <item>2px</item>
+    </items>
+  </object>
+</interface>
