@@ -1,0 +1,41 @@
+<background>
+  <starttime>
+    <year>2026</year>
+    <month>01</month>
+    <day>16</day>
+    <hour>00</hour>
+    <minute>00</minute>
+    <second>00</second>
+  </starttime>
+
+  <static>
+    <duration>85.0</duration>
+    <file>/home/babhrubahan/Pictures/1_beginning.png</file>
+  </static>
+  <transition>
+    <duration>5.0</duration>
+    <from>/home/babhrubahan/Pictures/1_beginning.png</from>
+    <to>/home/babhrubahan/Pictures/2_expansion.png</to>
+  </transition>
+
+  <static>
+    <duration>85.0</duration>
+    <file>/home/babhrubahan/Pictures/2_expansion.png</file>
+  </static>
+  <transition>
+    <duration>5.0</duration>
+    <from>/home/babhrubahan/Pictures/2_expansion.png</from>
+    <to>/home/babhrubahan/Pictures/3_becoming_gods.png</to>
+  </transition>
+
+  <static>
+    <duration>85.0</duration>
+    <file>/home/babhrubahan/Pictures/3_becoming_gods.png</file>
+  </static>
+  <transition>
+    <duration>5.0</duration>
+    <from>/home/babhrubahan/Pictures/3_becoming_gods.png</from>
+    <to>/home/babhrubahan/Pictures/1_beginning.png</to>
+  </transition>
+
+</background>

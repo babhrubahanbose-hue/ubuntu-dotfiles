@@ -1,0 +1,142 @@
+#!/bin/bash
+# Bootstrap script to install required packages
+# This runs once before chezmoi applies dotfiles
+
+set -e
+
+echo "==> Installing packages for dotfiles setup..."
+
+# Detect OS and package manager
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+else
+    echo "Cannot detect OS"
+    exit 1
+fi
+
+install_apt_packages() {
+    echo "==> Updating apt..."
+    sudo apt update
+
+    echo "==> Installing base packages via apt..."
+    sudo apt install -y \
+        zsh \
+        tmux \
+        git \
+        curl \
+        wget \
+        unzip \
+        build-essential \
+        neofetch \
+        tree \
+        feh \
+        ranger \
+        htop \
+        ripgrep
+}
+
+install_homebrew() {
+    if ! command -v brew &> /dev/null; then
+        echo "==> Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        # Add brew to PATH for this session
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    else
+        echo "==> Homebrew already installed"
+    fi
+}
+
+install_brew_packages() {
+    echo "==> Installing packages via Homebrew..."
+    brew install \
+        neovim \
+        bat \
+        eza \
+        fd \
+        fzf \
+        zoxide \
+        thefuck \
+        git-delta \
+        tldr
+}
+
+install_kitty() {
+    if ! command -v kitty &> /dev/null; then
+        echo "==> Installing Kitty terminal..."
+        curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+        # Create symlinks
+        mkdir -p ~/.local/bin
+        ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
+        ln -sf ~/.local/kitty.app/bin/kitten ~/.local/bin/
+    else
+        echo "==> Kitty already installed"
+    fi
+}
+
+install_alacritty() {
+    if ! command -v alacritty &> /dev/null; then
+        echo "==> Installing Alacritty..."
+        sudo apt install -y alacritty || {
+            # If not in repos, try snap
+            sudo snap install alacritty --classic
+        }
+    else
+        echo "==> Alacritty already installed"
+    fi
+}
+
+install_fonts() {
+    echo "==> Installing Nerd Fonts (MesloLGS for Powerlevel10k)..."
+    FONT_DIR="$HOME/.local/share/fonts"
+    mkdir -p "$FONT_DIR"
+
+    if [ ! -f "$FONT_DIR/MesloLGS NF Regular.ttf" ]; then
+        cd /tmp
+        wget -q https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+        wget -q https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+        wget -q https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+        wget -q https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+        mv MesloLGS*.ttf "$FONT_DIR/"
+        fc-cache -f -v
+    else
+        echo "==> Nerd fonts already installed"
+    fi
+}
+
+# Main installation
+case $OS in
+    ubuntu|debian|pop|linuxmint)
+        install_apt_packages
+        install_homebrew
+        install_brew_packages
+        install_kitty
+        install_alacritty
+        install_fonts
+        ;;
+    fedora)
+        echo "==> Fedora detected - adjust package manager as needed"
+        sudo dnf install -y zsh tmux git curl wget neofetch tree feh ranger htop ripgrep
+        install_homebrew
+        install_brew_packages
+        install_kitty
+        install_fonts
+        ;;
+    arch|manjaro)
+        echo "==> Arch-based detected"
+        sudo pacman -S --noconfirm zsh tmux git curl wget neofetch tree feh ranger htop ripgrep neovim bat eza fd fzf zoxide kitty alacritty
+        install_fonts
+        ;;
+    *)
+        echo "Unknown OS: $OS - please install packages manually"
+        ;;
+esac
+
+# Change default shell to zsh
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "==> Changing default shell to zsh..."
+    chsh -s $(which zsh)
+fi
+
+echo "==> Package installation complete!"

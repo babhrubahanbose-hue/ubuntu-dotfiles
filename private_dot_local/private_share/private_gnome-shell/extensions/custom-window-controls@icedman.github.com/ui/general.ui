@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="AdwPreferencesPage" id="general">
+    <property name="name">general</property>
+    <property name="title" translatable="yes">Blacklist</property>
+    <property name="icon-name">general-symbolic</property>
+    <child>
+      <object class="AdwPreferencesGroup" id="windows-group">
+        <property name="title" translatable="yes">Windows</property>
+        <property name="description" translatable="yes">Add exceptions or custom settings for specific apps and windows.</property>
+        <child>
+          <object class="AdwActionRow" id="self-test-row">
+            <property name="title" translatable="yes">Picker</property>
+            <property name="subtitle" translatable="yes">Select top level windows to exclude or to customizate button layout.</property>
+            <property name="activatable-widget">pick-window</property>
+            <child>
+              <object class="GtkButton" id="pick-window">
+                <property name="halign">start</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="margin-start">20</property>
+                    <property name="margin-end">20</property>
+                    <property name="margin-top">6</property>
+                    <property name="margin-bottom">6</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="margin-end">6</property>
+                        <property name="icon-name">add-window-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label" translatable="yes">Add Window</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <style>
+                  <class name="circular"/>
+                  <!-- <class name="destructive-action"/> -->
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

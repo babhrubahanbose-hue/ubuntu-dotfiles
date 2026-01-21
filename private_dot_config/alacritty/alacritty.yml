@@ -1,0 +1,23 @@
+env:
+  WINIT_UNIX_BACKEND: wayland
+
+window:
+  decorations: full
+  opacity: 1.0
+  dynamic_title: true
+
+font:
+  size: 13
+  normal:
+    family: "JetBrainsMono Nerd Font"
+
+scrolling:
+  history: 10000
+
+cursor:
+  style: Block
+
+mouse:
+  hide_when_typing: true
+
+live_config_reload: true

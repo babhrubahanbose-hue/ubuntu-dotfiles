@@ -1,0 +1,19 @@
+# Bat configuration - Catppuccin Mocha theme
+--theme="Catppuccin Mocha"
+
+# Style: line numbers, changes (git), header
+--style="numbers,changes,header,grid"
+
+# Enable italic text
+--italic-text=always
+
+# Paging: use less with better options
+--pager="less -RFX"
+
+# Map additional file types
+--map-syntax "*.conf:INI"
+--map-syntax "*.env:Dotenv"
+--map-syntax ".gitignore:Git Ignore"
+--map-syntax "*.dockerignore:Git Ignore"
+--map-syntax "Makefile:Makefile"
+--map-syntax "justfile:Makefile"

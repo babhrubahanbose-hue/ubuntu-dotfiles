@@ -1,0 +1,10 @@
+[Desktop Entry]
+X-SnapInstanceName=localsend
+Name=LocalSend
+Comment=Share files to nearby devices
+X-SnapAppName=localsend
+Exec=/snap/bin/localsend
+Icon=/snap/localsend/32/meta/gui/localsend.png
+Terminal=false
+Type=Application
+Categories=Utility;
